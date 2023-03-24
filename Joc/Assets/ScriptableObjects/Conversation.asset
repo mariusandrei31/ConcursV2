@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab9cb390fad74e5448b4bdb95cd6ae39, type: 3}
+  m_Name: Conversation
+  m_EditorClassIdentifier: 
+  dialogStructure:
+  - ID: 0
+    proposition: Cum te numesti?
+    choices:
+    - sendID: 1
+      text: David
+    - sendID: 3
+      text: Ce te intereseaza?
+  - ID: 1
+    proposition: Imi pare bine de cunostinta. Ce vrei sa faci?
+    choices:
+    - sendID: 2
+      text: Sa ma culc.
+    - sendID: 2
+      text: Sa termin acest sistem de dialog.
+  - ID: 2
+    proposition: Succes!
+    choices: []
+  - ID: 3
+    proposition: Doar am intrebat.
+    choices: []

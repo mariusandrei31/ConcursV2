@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Esenta Sufletului
+  - Esenta Gandului
+  - Esenta Mortii
+  - Esenta Vietii
+  - Stuff_0
+  - Stuff_1
+  - Stuff_2
+  - Stuff_3
+  - Stuff_4
+  - Stuff_5
+  - Stuff_6
+  - Stuff_7
+  - Stuff_8
+  - Stuff_9
+  - Stuff_10
+  - Stuff_11
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 324487019
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
