@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcbcf842f4392e4b85a94fd64cf8bbb, type: 3}
   m_Name: Register Of Cellection
   m_EditorClassIdentifier: 
-  nrResourcesCollected: 00000000000000000000000000000000
+  nrResourcesCollected: 00000000020000000000000000000000
   nrStuffCollected: 0
   nrStuffCrafted: 0

@@ -73,17 +73,17 @@ public class InventoryController : MonoBehaviour
     public int x_start, y_start;
     public int x_space, y_space;
 
-    //private void OnApplicationQuit()
-    //{
-    //    Save();
-    //}
+    private void OnApplicationQuit()
+    {
+        Save();
+    }
 
     private void Start()
     {
         Repopulate();
         GetComponents();
 
-        //Load();
+        Load();
     }
 
     private void Update()

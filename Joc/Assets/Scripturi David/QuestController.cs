@@ -34,12 +34,18 @@ public class QuestController : MonoBehaviour
     List<RaycastResult> click_results;
 
     bool questScreenOpen = false;
+    private void OnApplicationQuit()
+    {
+        Save();
+    }
 
     private void Start()
     {
         questAnimator = questScreen.GetComponent<Animator>();
         GetComponents();
         Repopulate();
+
+        Save();
     }
 
     private void Update()

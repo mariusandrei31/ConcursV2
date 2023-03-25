@@ -12,7 +12,7 @@ public class Functionalitati : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (activ == false)
+            if (!activ)
             {
                 PlayMeniu.SetActive(true);
                 activ = true;
@@ -29,5 +29,11 @@ public class Functionalitati : MonoBehaviour
             }
 
         }
+    }
+
+    public void ResumeGame()
+    {
+        PlayMeniu.SetActive(false);
+        activ = false;
     }
 }

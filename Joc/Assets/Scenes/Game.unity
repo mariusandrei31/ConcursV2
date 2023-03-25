@@ -18943,7 +18943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &494771610
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19344,7 +19344,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &508738231
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28596,10 +28596,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1894277061}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1172670403}
+        m_TargetAssemblyTypeName: Functionalitati, Assembly-CSharp
+        m_MethodName: ResumeGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -44579,7 +44579,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172670402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 890.15594, y: 575.9491, z: 4.9609866}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -60099,6 +60099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fcf52e197b88b749ba1c5ba496a480c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainController: {fileID: 1567726257}
   gameObjects:
   - {fileID: 1338414907}
   - {fileID: 1070338451}

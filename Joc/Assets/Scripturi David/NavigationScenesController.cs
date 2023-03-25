@@ -7,13 +7,15 @@ using UnityEngine.UI;
 
 public class NavigationScenesController : MonoBehaviour
 {
+    public MainController mainController;
+
     public List<GameObject> gameObjects;
 
     public GameObject currentScene;
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && mainController.actionPoints == 0)
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
@@ -25,7 +27,6 @@ public class NavigationScenesController : MonoBehaviour
                 {
                     currentScene.SetActive(false);
                     gameObjects[val].SetActive(true);
-                    Debug.Log(val);
                     currentScene = gameObjects[val];
                 }
             }

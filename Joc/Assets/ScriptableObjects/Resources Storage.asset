@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 499b32c4239091445aa4acd065aa18c0, type: 3}
   m_Name: Resources Storage
   m_EditorClassIdentifier: 
-  storage: 00000000000000000000000000000000
+  storage: 010000000a0000000100000002000000

@@ -48,6 +48,10 @@ public class AchievementController : MonoBehaviour
 
     PointerEventData click_data;
     List<RaycastResult> click_results;
+    private void OnApplicationQuit()
+    {
+        Save();
+    }
 
     private void Start()
     {
@@ -57,6 +61,8 @@ public class AchievementController : MonoBehaviour
 
         if (PlayerPrefs.HasKey("secretAchievementStatus"))
             CreateSecretAchievement(achievementsObj.Count, secretAchievementName, secretAchievementDescription);
+
+        Load();
     }
 
     private void Update()
@@ -141,7 +147,7 @@ public class AchievementController : MonoBehaviour
             if (ui_element.name == "SecretAchievementTrigger")
             {
                 Destroy(ui_element);
-                DebugCreateSecretAchievement(achievementsObj.Count, secretAchievementName, secretAchievementDescription);
+                CreateSecretAchievement(achievementsObj.Count, secretAchievementName, secretAchievementDescription);
 
                 PlayerPrefs.SetString("secretAchievementStatus", "ceva");
             }
@@ -169,7 +175,7 @@ public class AchievementController : MonoBehaviour
         GameObject obj = Instantiate(achievementHolderPrefab);
         obj.transform.SetParent(parentTransform);
         Vector3 pos = GetPosition(val);
-        //pos.x = 691.5f;
+        
         obj.transform.localPosition = pos;
 
         obj.transform.GetChild(0).GetComponent<Text>().text = name;
@@ -177,17 +183,17 @@ public class AchievementController : MonoBehaviour
         obj.transform.GetChild(2).GetComponent<Image>().sprite = stars_3;
     }
 
-    void DebugCreateSecretAchievement(int val, string name, string description)
-    {
-        GameObject obj = Instantiate(achievementHolderPrefab);
-        obj.transform.SetParent(parentTransform);
-        Vector3 pos = GetPosition(val);
-        obj.transform.localPosition = pos;
-
-        obj.transform.GetChild(0).GetComponent<Text>().text = name;
-        obj.transform.GetChild(1).GetComponent<Text>().text = description;
-        obj.transform.GetChild(2).GetComponent<Image>().sprite = stars_3;
-    }
+    //void DebugCreateSecretAchievement(int val, string name, string description)
+    //{
+    //    GameObject obj = Instantiate(achievementHolderPrefab);
+    //    obj.transform.SetParent(parentTransform);
+    //    Vector3 pos = GetPosition(val);
+    //    obj.transform.localPosition = pos;
+    //    pos.x = 691.5f;
+    //    obj.transform.GetChild(0).GetComponent<Text>().text = name;
+    //    obj.transform.GetChild(1).GetComponent<Text>().text = description;
+    //    obj.transform.GetChild(2).GetComponent<Image>().sprite = stars_3;
+    //}
 
     Vector3 GetPosition(int i)
     {
