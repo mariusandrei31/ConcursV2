@@ -7,6 +7,8 @@ public class MainController : MonoBehaviour
     [HideInInspector]
     public int actionPoints = 0;
 
+    public Animator PMAnim;
+
     public Transform playerTransform;
     public Transform focusPointTransform;
 
@@ -22,6 +24,11 @@ public class MainController : MonoBehaviour
     {
         if (actionPoints == 0)
             GetTargetPosition();
+
+        if (playerTransform.localPosition == target)
+            PMAnim.SetBool("PlayerMove", false);
+        else
+            PMAnim.SetBool("PlayerMove", true);
 
         //Click();
     }
@@ -53,7 +60,14 @@ public class MainController : MonoBehaviour
     void GetTargetPosition()
     {
         if (Input.GetMouseButtonDown(0))
+        {
             target = GetPosition();
+
+            if (target.x > playerTransform.localPosition.x)
+                playerTransform.localEulerAngles = new Vector3(0, 0, 0);
+            else
+                playerTransform.localEulerAngles = new Vector3(0, 180, 0);
+        }
     }
 
     private void Move()
@@ -61,7 +75,7 @@ public class MainController : MonoBehaviour
         playerTransform.localPosition = Vector3.MoveTowards(playerTransform.localPosition, target, Time.deltaTime * moveSpeed);
 
         float scaleFactor = focusPointTransform.localPosition.y - playerTransform.localPosition.y;
-        scaleFactor /= 4.5f;
+        scaleFactor /= 22.0f;
         playerTransform.localScale = new Vector3(scaleFactor, scaleFactor, 1);
     }
 
@@ -73,6 +87,6 @@ public class MainController : MonoBehaviour
     Vector3 GetPosition()
     {
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        return new Vector3(pos.x, pos.y, 1);
+        return new Vector3(pos.x, pos.y+2.0f, 1);
     }
 }
