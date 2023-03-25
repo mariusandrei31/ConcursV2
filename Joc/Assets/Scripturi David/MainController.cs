@@ -12,7 +12,8 @@ public class MainController : MonoBehaviour
     public Transform playerTransform;
     public Transform focusPointTransform;
 
-    Vector3 target;
+    [HideInInspector]
+    public Vector3 target;
     public float moveSpeed;
 
     private void Start()
@@ -75,18 +76,13 @@ public class MainController : MonoBehaviour
         playerTransform.localPosition = Vector3.MoveTowards(playerTransform.localPosition, target, Time.deltaTime * moveSpeed);
 
         float scaleFactor = focusPointTransform.localPosition.y - playerTransform.localPosition.y;
-        scaleFactor /= 22.0f;
+        scaleFactor /= 10.0f;
         playerTransform.localScale = new Vector3(scaleFactor, scaleFactor, 1);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        target = playerTransform.localPosition;
     }
 
     Vector3 GetPosition()
     {
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        return new Vector3(pos.x, pos.y+2.0f, 1);
+        return new Vector3(pos.x, pos.y, 1);
     }
 }
