@@ -6,42 +6,26 @@ public class Functionalitati : MonoBehaviour
 {
     public MainController mainController;
 
-    public GameObject PlayMeniu, Options, Meniu,Legenda;
-    public bool activM = false,activL=false;
+    public GameObject PlayMeniu, Options, Meniu;
+    public bool activ = false;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (activM == false)
+            if (activ == false)
             {
                 PlayMeniu.SetActive(true);
-                activM = true;
+                activ = true;
                 mainController.actionPoints++;
             }
             else
             {
                 PlayMeniu.SetActive(false);
                 mainController.actionPoints--;
-                activM = false;
+                activ = false;
                 Options.SetActive(false);
                 Meniu.SetActive(true);
 
-            }
-
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            if (activL == false)
-            {
-                Legenda.SetActive(true);
-                activL = true;
-                mainController.actionPoints++;
-            }
-            else
-            {
-                Legenda.SetActive(false);
-                mainController.actionPoints--;
-                activL = false;
             }
 
         }
