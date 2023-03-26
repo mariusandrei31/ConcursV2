@@ -77,15 +77,13 @@ public class DialogController : MonoBehaviour
                 {
                     OperateDialogScreen(false);
                     mainController.actionPoints--;
+                    mainController.canOpenScreens = true;
                 }
             }
 
             if (ui_element.name == "Dialog_1" || ui_element.name == "Dialog_2")
             {
-                SetDialogOnScreen(conv_1);
-                UpdateConversation(0);
-                OperateDialogScreen(true);
-                mainController.actionPoints++;
+                StartText(conv_1);
             }
         }
     }
@@ -137,6 +135,16 @@ public class DialogController : MonoBehaviour
     {
         conversation = _conversation;
         structureID = 0;
+    }
+
+    public void StartText(ConversationStructure _conversation)
+    {
+        mainController.canOpenScreens = false;
+
+        SetDialogOnScreen(_conversation);
+        UpdateConversation(0);
+        OperateDialogScreen(true);
+        mainController.actionPoints++;
     }
 
     Vector3 GetPosition(int val)

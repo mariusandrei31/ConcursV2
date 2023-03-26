@@ -59,15 +59,23 @@ public class AchievementController : MonoBehaviour
         GetComponents();
         DisplayAchievements();
 
-        if (PlayerPrefs.HasKey("secretAchievementStatus"))
+        if (PlayerPrefs.HasKey("secretAchievement"))
             CreateSecretAchievement(achievementsObj.Count, secretAchievementName, secretAchievementDescription);
 
-        Load();
+        if (OK.ok)
+            Load();
+        else
+        {
+            for (int i = 0; i < registerOfCellection.nrResourcesCollected.Count; i++)
+                registerOfCellection.nrResourcesCollected[i] = 0;
+            registerOfCellection.nrStuffCollected = 0;
+            registerOfCellection.nrStuffCrafted = 0;
+        }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) && mainController.canOpenScreens)
         {
             bool open = ASAnim.GetBool("OpenAchievementScreen");
 
@@ -149,7 +157,7 @@ public class AchievementController : MonoBehaviour
                 Destroy(ui_element);
                 CreateSecretAchievement(achievementsObj.Count, secretAchievementName, secretAchievementDescription);
 
-                PlayerPrefs.SetString("secretAchievementStatus", "ceva");
+                PlayerPrefs.SetString("secretAchievement", "ceva");
             }
         }
     }
@@ -174,8 +182,8 @@ public class AchievementController : MonoBehaviour
     {
         GameObject obj = Instantiate(achievementHolderPrefab);
         obj.transform.SetParent(parentTransform);
+
         Vector3 pos = GetPosition(val);
-        
         obj.transform.localPosition = pos;
 
         obj.transform.GetChild(0).GetComponent<Text>().text = name;
@@ -264,7 +272,7 @@ public class AchievementController : MonoBehaviour
         obj.transform.GetChild(2).GetComponent<Image>().sprite = sprite;
     }
 
-    void Save()
+    public void Save()
     {
         string nrResourcesCollected = "";
         for (int i=0; i<registerOfCellection.nrResourcesCollected.Count; i++)
@@ -277,7 +285,7 @@ public class AchievementController : MonoBehaviour
         PlayerPrefs.SetString("nrStuffCrafted", registerOfCellection.nrStuffCrafted.ToString());
     }
 
-    void Load()
+    public void Load()
     {
         string[] saved = PlayerPrefs.GetString("nrResourcesCollected").Split('~');
         for (int i=0; i < saved.Length - 1; i++)

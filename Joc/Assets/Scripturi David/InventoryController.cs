@@ -72,7 +72,6 @@ public class InventoryController : MonoBehaviour
     public int linesNr, columnsNr;
     public int x_start, y_start;
     public int x_space, y_space;
-
     private void OnApplicationQuit()
     {
         Save();
@@ -83,14 +82,15 @@ public class InventoryController : MonoBehaviour
         Repopulate();
         GetComponents();
 
-        Load();
+        if (OK.ok)
+            Load();
     }
 
     private void Update()
     {
         IfClicked();
 
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) && mainController.canOpenScreens)
         {
             if (inventoryScreenOpen)
                 inventoryScreenOpen = false;
@@ -431,7 +431,7 @@ public class InventoryController : MonoBehaviour
         return null;
     }
 
-    void Save()
+    public void Save()
     {
         for (int i = 0; i < resourcesStorage.storage.Count; i++)
             resourcesStorage.storage[i] = 0;
@@ -454,7 +454,7 @@ public class InventoryController : MonoBehaviour
         PlayerPrefs.SetString("saveStuff", saveStuff);
     }
 
-    void Load()
+    public void Load()
     {
         if (PlayerPrefs.HasKey("saveResources"))
         {

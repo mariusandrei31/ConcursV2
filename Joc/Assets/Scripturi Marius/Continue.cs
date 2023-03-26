@@ -10,6 +10,5 @@ public class Continue : MonoBehaviour
     {
         OK.ok = true;
         SceneManager.LoadScene("Game");
-        
     }
 }

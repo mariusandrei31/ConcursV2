@@ -45,7 +45,8 @@ public class QuestController : MonoBehaviour
         GetComponents();
         Repopulate();
 
-        Save();
+        if(OK.ok)
+            Load();
     }
 
     private void Update()
@@ -62,7 +63,7 @@ public class QuestController : MonoBehaviour
             Load();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && mainController.canOpenScreens)
         {
             if (questScreenOpen)
                 questScreenOpen = false;
@@ -173,7 +174,7 @@ public class QuestController : MonoBehaviour
         questList.Add(getQuestID[questName]);
     }
 
-    void Save()
+    public void Save()
     {
         string saveQuests = "";
         for (int i = 0; i < questList.Count; i++)
@@ -182,7 +183,7 @@ public class QuestController : MonoBehaviour
         PlayerPrefs.SetString("saveQuests", saveQuests);
     }
 
-    void Load()
+    public void Load()
     {
         if (PlayerPrefs.HasKey("saveQuests"))
         {

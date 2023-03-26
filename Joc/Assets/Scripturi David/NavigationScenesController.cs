@@ -8,10 +8,13 @@ using UnityEngine.UI;
 public class NavigationScenesController : MonoBehaviour
 {
     public MainController mainController;
+    public DialogController dialogController;
 
     public List<GameObject> gameObjects;
 
     public GameObject currentScene;
+
+    public ConversationStructure tryToLeave;
 
     private void Update()
     {
@@ -25,9 +28,17 @@ public class NavigationScenesController : MonoBehaviour
             {
                 if (int.TryParse(hit.collider.gameObject.name, out int val))
                 {
-                    currentScene.SetActive(false);
-                    gameObjects[val].SetActive(true);
-                    currentScene = gameObjects[val];
+                    if (val >= 0)
+                    {
+                        currentScene.SetActive(false);
+                        gameObjects[val].SetActive(true);
+                        currentScene = gameObjects[val];
+                    }
+
+                    if (val == -1)
+                    {
+                        dialogController.StartText(tryToLeave);
+                    }
                 }
             }
         }

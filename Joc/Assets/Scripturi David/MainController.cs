@@ -6,6 +6,8 @@ public class MainController : MonoBehaviour
 {
     [HideInInspector]
     public int actionPoints = 0;
+    [HideInInspector]
+    public bool canOpenScreens = true;
 
     public Animator PMAnim;
 

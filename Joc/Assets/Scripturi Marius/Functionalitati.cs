@@ -5,6 +5,9 @@ using UnityEngine;
 public class Functionalitati : MonoBehaviour
 {
     public MainController mainController;
+    public QuestController questController;
+    public InventoryController inventoryController;
+    public AchievementController achievementController;
 
     public GameObject PlayMeniu, Options, Meniu;
     public bool activ = false;
@@ -35,5 +38,13 @@ public class Functionalitati : MonoBehaviour
     {
         PlayMeniu.SetActive(false);
         activ = false;
+        mainController.actionPoints--;
+    }
+
+    public void BackToMainMenu()
+    {
+        questController.Save();
+        inventoryController.Save();
+        achievementController.Save();
     }
 }
