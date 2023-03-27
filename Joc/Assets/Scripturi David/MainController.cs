@@ -8,6 +8,8 @@ public class MainController : MonoBehaviour
     public int actionPoints = 0;
     [HideInInspector]
     public bool canOpenScreens = true;
+    [HideInInspector]
+    public bool canExit = false;
 
     public Animator PMAnim;
 
@@ -18,20 +20,21 @@ public class MainController : MonoBehaviour
     public Vector3 target;
     public float moveSpeed;
 
-    private void Start()
-    {
-        target = playerTransform.localPosition;
-    }
+    [HideInInspector]
+    public bool canAnimate = false;
 
     private void Update()
     {
         if (actionPoints == 0)
             GetTargetPosition();
 
-        if (playerTransform.localPosition == target)
-            PMAnim.SetBool("PlayerMove", false);
-        else
-            PMAnim.SetBool("PlayerMove", true);
+        if (canAnimate)
+        {
+            if (playerTransform.localPosition == target)
+                PMAnim.SetBool("PlayerMove", false);
+            else
+                PMAnim.SetBool("PlayerMove", true);
+        }
 
         //Click();
     }

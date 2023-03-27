@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.AnimatedValues;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class NavigationScenesController : MonoBehaviour
 {
+    public LevelController levelController;
+
     public MainController mainController;
     public DialogController dialogController;
 
@@ -14,7 +18,7 @@ public class NavigationScenesController : MonoBehaviour
 
     public GameObject currentScene;
 
-    public ConversationStructure tryToLeave, tryToEnterCemetery;
+    public ConversationStructure tryToLeave, tryToEnterCemetery, blockedStreets;
 
     private void Update()
     {
@@ -32,17 +36,44 @@ public class NavigationScenesController : MonoBehaviour
                     {
                         currentScene.SetActive(false);
                         gameObjects[val].SetActive(true);
-                        Debug.Log(val);
                         currentScene = gameObjects[val];
+
+                        Debug.Log(val);
                     }
 
                     if (val == -10)
                     {
-                        dialogController.StartText(tryToLeave);
+                        if (mainController.canExit)
+                        {
+
+                        }
+                        else
+                        {
+                            dialogController.StartText(tryToLeave);
+                        }
                     }
                     else if (val == -11)
                     {
                         dialogController.StartText(tryToEnterCemetery);
+                    }
+                    else if (val == -12)
+                    {
+                        dialogController.StartText(blockedStreets);
+                    }
+                    else if (val == -13)
+                    {
+
+                    }
+                    else if (val == -15)
+                    {
+                        currentScene.SetActive(false);
+                        mainController.playerTransform = levelController.playerTransforms[int.Parse(PlayerPrefs.GetString("Level")) - 1];
+                        mainController.focusPointTransform = levelController.focusPointTransforms[int.Parse(PlayerPrefs.GetString("Level")) - 1];
+                        mainController.playerTransform.localPosition = levelController.spawnpoint[int.Parse(PlayerPrefs.GetString("Level")) - 1].localPosition;
+                        mainController.target = mainController.playerTransform.localPosition;
+                        mainController.PMAnim = levelController.animators[int.Parse(PlayerPrefs.GetString("Level")) - 1];
+                        levelController.houses[int.Parse(PlayerPrefs.GetString("Level")) - 1].SetActive(true);
+                        mainController.canAnimate = true;
                     }
                 }
             }
