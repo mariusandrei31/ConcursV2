@@ -9,35 +9,51 @@ public class Functionalitati : MonoBehaviour
     public InventoryController inventoryController;
     public AchievementController achievementController;
 
-    public GameObject PlayMeniu, Options, Meniu;
-    public bool activ = false;
+    public GameObject PlayMeniu, Options, Meniu, Legenda;
+    public bool activ_M = false, activ_L = false;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!activ)
+            if (!activ_M)
             {
                 PlayMeniu.SetActive(true);
-                activ = true;
+                activ_M = true;
                 mainController.actionPoints++;
             }
             else
             {
                 PlayMeniu.SetActive(false);
                 mainController.actionPoints--;
-                activ = false;
+                activ_M = false;
                 Options.SetActive(false);
                 Meniu.SetActive(true);
 
             }
+        }
 
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            if (!activ_L)
+            {
+                Legenda.SetActive(true);
+                activ_L = true;
+                mainController.actionPoints++;
+            }
+            else
+            {
+                Legenda.SetActive(false);
+                mainController.actionPoints--;
+                activ_L = false;
+            }
         }
     }
 
     public void ResumeGame()
     {
         PlayMeniu.SetActive(false);
-        activ = false;
+        activ_M = false;
         mainController.actionPoints--;
     }
 

@@ -44843,7 +44843,9 @@ MonoBehaviour:
   PlayMeniu: {fileID: 1894277061}
   Options: {fileID: 1870033060}
   Meniu: {fileID: 1700663168}
-  activ: 0
+  Legenda: {fileID: 248314901}
+  activ_M: 0
+  activ_L: 0
 --- !u!4 &1172670404
 Transform:
   m_ObjectHideFlags: 0
