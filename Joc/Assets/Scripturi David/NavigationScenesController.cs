@@ -14,7 +14,7 @@ public class NavigationScenesController : MonoBehaviour
 
     public GameObject currentScene;
 
-    public ConversationStructure tryToLeave;
+    public ConversationStructure tryToLeave, tryToEnterCemetery;
 
     private void Update()
     {
@@ -32,12 +32,17 @@ public class NavigationScenesController : MonoBehaviour
                     {
                         currentScene.SetActive(false);
                         gameObjects[val].SetActive(true);
+                        Debug.Log(val);
                         currentScene = gameObjects[val];
                     }
 
-                    if (val == -1)
+                    if (val == -10)
                     {
                         dialogController.StartText(tryToLeave);
+                    }
+                    else if (val == -11)
+                    {
+                        dialogController.StartText(tryToEnterCemetery);
                     }
                 }
             }
