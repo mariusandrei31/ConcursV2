@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class DialogController : MonoBehaviour
 {
     public MainController mainController;
+    public LevelController levelController;
 
     ConversationStructure conversation;
     public ConversationStructure conv_1, conv_2;
@@ -20,6 +21,7 @@ public class DialogController : MonoBehaviour
     public Text conversationText;
 
     List<GameObject> choicesObj = new List<GameObject>();
+    public List<GameObject> sceenes = new List<GameObject>();
 
     public GameObject ui_canvas;
     GraphicRaycaster ui_raycaster;
@@ -31,6 +33,9 @@ public class DialogController : MonoBehaviour
     public Transform parentTransform;
 
     public int y_start, y_distance;
+
+    [HideInInspector]
+    public bool canChoose = true;
 
     private void Start()
     {
@@ -66,7 +71,7 @@ public class DialogController : MonoBehaviour
         {
             GameObject ui_element = result.gameObject;
 
-            if (int.TryParse(ui_element.name, out int val))
+            if (int.TryParse(ui_element.name, out int val) && canChoose)
             {
                 if (val >= 0)
                 {
@@ -78,6 +83,17 @@ public class DialogController : MonoBehaviour
                     OperateDialogScreen(false);
                     mainController.actionPoints--;
                     mainController.canOpenScreens = true;
+
+                    if (mainController.loadSceene)
+                    {
+                        mainController.loadSceene = false;
+                        mainController.canExit = true;
+
+                        sceenes[int.Parse(PlayerPrefs.GetString("Level")) - 1].SetActive(true);
+                        levelController.houses[int.Parse(PlayerPrefs.GetString("Level")) - 1].SetActive(false);
+                        levelController.targetArrow[int.Parse(PlayerPrefs.GetString("Level")) - 1].name = "-14";
+                        levelController.targetArrow[int.Parse(PlayerPrefs.GetString("Level")) - 1].GetComponent<SpriteRenderer>().color = Color.white;
+                    }
                 }
             }
 

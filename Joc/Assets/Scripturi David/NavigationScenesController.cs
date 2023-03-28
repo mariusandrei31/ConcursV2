@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.AnimatedValues;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 
 public class NavigationScenesController : MonoBehaviour
@@ -18,7 +18,7 @@ public class NavigationScenesController : MonoBehaviour
 
     public GameObject currentScene;
 
-    public ConversationStructure tryToLeave, tryToEnterCemetery, blockedStreets;
+    public ConversationStructure tryToLeave, tryToEnterCemetery, blockedStreets, blockedHouse, visitedHouse;
 
     private void Update()
     {
@@ -37,15 +37,16 @@ public class NavigationScenesController : MonoBehaviour
                         currentScene.SetActive(false);
                         gameObjects[val].SetActive(true);
                         currentScene = gameObjects[val];
-
-                        Debug.Log(val);
                     }
 
                     if (val == -10)
                     {
                         if (mainController.canExit)
                         {
+                            int v = int.Parse(PlayerPrefs.GetString("Level"));
+                            PlayerPrefs.SetString("Level", (v + 1).ToString());
 
+                            SceneManager.LoadScene("Meniu");
                         }
                         else
                         {
@@ -62,7 +63,11 @@ public class NavigationScenesController : MonoBehaviour
                     }
                     else if (val == -13)
                     {
-
+                        dialogController.StartText(blockedHouse);
+                    }
+                    else if (val == -14)
+                    {
+                        dialogController.StartText(visitedHouse);
                     }
                     else if (val == -15)
                     {

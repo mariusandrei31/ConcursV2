@@ -8,6 +8,7 @@ public class Functionalitati : MonoBehaviour
     public QuestController questController;
     public InventoryController inventoryController;
     public AchievementController achievementController;
+    public DialogController dialogController;
 
     public GameObject PlayMeniu, Options, Meniu, Legenda;
     public bool activ_M = false, activ_L = false;
@@ -29,7 +30,6 @@ public class Functionalitati : MonoBehaviour
                 activ_M = false;
                 Options.SetActive(false);
                 Meniu.SetActive(true);
-
             }
         }
 
@@ -40,12 +40,14 @@ public class Functionalitati : MonoBehaviour
                 Legenda.SetActive(true);
                 activ_L = true;
                 mainController.actionPoints++;
+                dialogController.canChoose = false;
             }
             else
             {
                 Legenda.SetActive(false);
                 mainController.actionPoints--;
                 activ_L = false;
+                dialogController.canChoose = true;
             }
         }
     }

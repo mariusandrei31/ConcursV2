@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class MainController : MonoBehaviour
 {
@@ -22,6 +23,13 @@ public class MainController : MonoBehaviour
 
     [HideInInspector]
     public bool canAnimate = false;
+    [HideInInspector]
+    public bool loadSceene = false;
+
+    private void Start()
+    {
+        canExit = false;
+    }
 
     private void Update()
     {
