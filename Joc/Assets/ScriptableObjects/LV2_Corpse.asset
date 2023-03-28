@@ -14,5 +14,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogStructure:
   - ID: 0
-    proposition: 2
+    proposition: 'This time the corpse looks better: I mean, it still looks bad,
+      but at least it doesn''t have rope marks on it.'
+    choices:
+    - sendID: 1
+      text: Next
+  - ID: 1
+    proposition: Unlike the first corpse, this one does not show many signs. On closer
+      inspection, it can be seen that some areas of the skin show various wounds,
+      as if the person had scratched intensively.
+    choices:
+    - sendID: 2
+      text: Next
+  - ID: 2
+    proposition: Also, some areas of the skin are more yellow than they should be
+      and are present swollen lymph nodes.
+    choices:
+    - sendID: 3
+      text: Next
+  - ID: 3
+    proposition: 'Diagnosis:'
+    choices:
+    - sendID: 4
+      text: Malaria
+    - sendID: 5
+      text: Scurvy
+    - sendID: 5
+      text: Smallpox
+  - ID: 4
+    proposition: You started doing better. Who knows, maybe one day you'll end up
+      working at a real morgue.
+    choices:
+    - sendID: 6
+      text: Leave that. You haven't answered my question yet.
+  - ID: 5
+    proposition: You were never a brilliant man, were you?
+    choices:
+    - sendID: 6
+      text: Leave that. You haven't answered my question yet.
+  - ID: 6
+    proposition: We have no time for questions, my friend. Let's move on!
     choices: []

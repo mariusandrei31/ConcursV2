@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab9cb390fad74e5448b4bdb95cd6ae39, type: 3}
+  m_Name: Tutorial
+  m_EditorClassIdentifier: 
+  dialogStructure:
+  - ID: 0
+    proposition: So, there's a new guy. Welcome, I'm going to walk you through this
+      job.
+    choices:
+    - sendID: 1
+      text: Next
+  - ID: 1
+    proposition: If you don't remember what job you signed up for, I'll remind you.
+      You need to find out what diseases killed the villagers of Bryxton.
+    choices:
+    - sendID: 2
+      text: Next
+  - ID: 2
+    proposition: Today I'm going to show you how to do that step by step. The blue
+      arrows will show you where to go, and when you press L, a book will open with
+      all the known diseases.
+    choices:
+    - sendID: 3
+      text: Next
+  - ID: 3
+    proposition: Press I to open your inventory and A to open the achievements page.
+      Now follow the marked arrows.
+    choices: []

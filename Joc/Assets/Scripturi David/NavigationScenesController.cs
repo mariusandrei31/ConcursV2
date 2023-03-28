@@ -10,15 +10,23 @@ using static UnityEngine.GraphicsBuffer;
 public class NavigationScenesController : MonoBehaviour
 {
     public LevelController levelController;
-
     public MainController mainController;
     public DialogController dialogController;
 
     public List<GameObject> gameObjects;
 
     public GameObject currentScene;
+    public GameObject lockpikMiniGame;
 
-    public ConversationStructure tryToLeave, tryToEnterCemetery, blockedStreets, blockedHouse, visitedHouse;
+    public ConversationStructure tryToLeave, tryToEnterCemetery, blockedStreets, blockedHouse, visitedHouse, tutorial, firtsTime, minigame;
+
+    public GameObject minigameArrow1, minigameArrow2;
+
+    private void Start()
+    {
+        if (PlayerPrefs.GetString("Level") == "1")
+            dialogController.StartText(tutorial);
+    }
 
     private void Update()
     {
@@ -37,6 +45,8 @@ public class NavigationScenesController : MonoBehaviour
                         currentScene.SetActive(false);
                         gameObjects[val].SetActive(true);
                         currentScene = gameObjects[val];
+
+                        Debug.Log(val);
                     }
 
                     if (val == -10)
@@ -44,6 +54,9 @@ public class NavigationScenesController : MonoBehaviour
                         if (mainController.canExit)
                         {
                             int v = int.Parse(PlayerPrefs.GetString("Level"));
+
+                            if (PlayerPrefs.GetString("Level") == "5")
+                                PlayerPrefs.DeleteKey("NewGame");
                             PlayerPrefs.SetString("Level", (v + 1).ToString());
 
                             SceneManager.LoadScene("Meniu");
@@ -79,6 +92,21 @@ public class NavigationScenesController : MonoBehaviour
                         mainController.PMAnim = levelController.animators[int.Parse(PlayerPrefs.GetString("Level")) - 1];
                         levelController.houses[int.Parse(PlayerPrefs.GetString("Level")) - 1].SetActive(true);
                         mainController.canAnimate = true;
+
+                        if (PlayerPrefs.GetString("Level") == "1")
+                            dialogController.StartText(firtsTime);
+                    }
+                    else if (val == -20 && PlayerPrefs.GetString("Level") == "5")
+                    {
+                        currentScene.SetActive(false);
+                        lockpikMiniGame.SetActive(true);
+                        minigameArrow1.name = "-13";
+                        minigameArrow2.name = "-13";
+                        dialogController.StartText(minigame);
+                    }
+                    else if (val == -20 && PlayerPrefs.GetString("Level") != "5")
+                    {
+                        dialogController.StartText(blockedHouse);
                     }
                 }
             }

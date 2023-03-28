@@ -12,7 +12,7 @@ public class DialogController : MonoBehaviour
     public LevelController levelController;
 
     ConversationStructure conversation;
-    public ConversationStructure conv_1, conv_2;
+    public ConversationStructure conv_1, conv_2, firstEnd;
 
     public Animator DSAnim;
 
@@ -93,6 +93,9 @@ public class DialogController : MonoBehaviour
                         levelController.houses[int.Parse(PlayerPrefs.GetString("Level")) - 1].SetActive(false);
                         levelController.targetArrow[int.Parse(PlayerPrefs.GetString("Level")) - 1].name = "-14";
                         levelController.targetArrow[int.Parse(PlayerPrefs.GetString("Level")) - 1].GetComponent<SpriteRenderer>().color = Color.white;
+
+                        if (PlayerPrefs.GetString("Level") == "1")
+                            StartText(firstEnd);
                     }
                 }
             }

@@ -14,5 +14,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogStructure:
   - ID: 0
-    proposition: 5
+    proposition: Finally, the last day! Although I have learned nothing useful about
+      the character who has guided me so far, at least I can leave and, I hope, never
+      come back here.
+    choices:
+    - sendID: 1
+      text: Next
+  - ID: 1
+    proposition: 'Moving from this to the corpse, one can notice something curious:
+      this corpse is fresher than the others. There is no sign of blows or vomit,
+      and the skin is relatively dry.'
+    choices:
+    - sendID: 2
+      text: Next
+  - ID: 2
+    proposition: 'What is most prominent are the black spots on the skin. Very curious:
+      he has a big bump under his arms.'
+    choices:
+    - sendID: 3
+      text: Next
+  - ID: 3
+    proposition: I sat for a while to think, when out of nowhere I start shaking
+      as if with fear. I feel like I'm working with something familiar.
+    choices:
+    - sendID: 4
+      text: Next
+  - ID: 4
+    proposition: I take one last frightened look at the corpse, then at my hands,
+      now black ...
+    choices:
+    - sendID: 5
+      text: The Plague!
+    - sendID: 5
+      text: The Plague!
+    - sendID: 5
+      text: The Plague!
+  - ID: 5
+    proposition: The Plague!
     choices: []

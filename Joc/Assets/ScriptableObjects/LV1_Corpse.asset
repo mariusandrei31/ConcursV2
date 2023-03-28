@@ -14,5 +14,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogStructure:
   - ID: 0
-    proposition: 1
+    proposition: The body is not in a very good condition. It looks as if someone
+      tied it or dragged it here with a string.
+    choices:
+    - sendID: 1
+      text: Next
+  - ID: 1
+    proposition: Examining the disfigured face one can see that his eyebrows are
+      missing. He has what appears to be clotted blood under his nose.
+    choices:
+    - sendID: 2
+      text: Next
+  - ID: 2
+    proposition: What's more, there are all kinds of skinless areas on the body.
+    choices:
+    - sendID: 3
+      text: Next
+  - ID: 3
+    proposition: 'Diagnosis:'
+    choices:
+    - sendID: 5
+      text: Typhoid
+    - sendID: 4
+      text: Leprosy
+    - sendID: 5
+      text: Flu
+  - ID: 4
+    proposition: Congratulations! You found the correct cause of death. Don't get
+      it into your head though. It's just the first level.
+    choices:
+    - sendID: 6
+      text: Wait! How do you know? What do you have to do with all this?
+  - ID: 5
+    proposition: 'Seriously? Is it the easiest level and you managed to get it wrong?
+      I''m telling you honestly: you should rethink your decisions in life.'
+    choices:
+    - sendID: 6
+      text: Wait! How do you know? What do you have to do with all this?
+  - ID: 6
+    proposition: ... ... ...
+    choices:
+    - sendID: 7
+      text: Next
+  - ID: 7
+    proposition: Let's move on!
     choices: []

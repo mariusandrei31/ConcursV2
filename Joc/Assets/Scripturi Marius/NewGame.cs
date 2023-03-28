@@ -11,6 +11,7 @@ public class NewGame : MonoBehaviour
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetString("Level", "1");
 
+        PlayerPrefs.SetString("NewGame", "NewGame");
         SceneManager.LoadScene("Game");
     }
 }

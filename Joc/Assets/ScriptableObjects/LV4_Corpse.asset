@@ -14,5 +14,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogStructure:
   - ID: 0
-    proposition: 4
+    proposition: The fourth day. I have a little more and I escape from this village,
+      but especially from the so-titled narrator. Let's see what we're dealing with.
+    choices:
+    - sendID: 1
+      text: Next
+  - ID: 1
+    proposition: Hmm. The body shows no traces of blows or trauma. Surprising. The
+      skin is very dry and has blackened areas and the eyes are lifeless (say no
+      more).
+    choices:
+    - sendID: 2
+      text: Next
+  - ID: 2
+    proposition: The clothes are dirtier than usual, being covered in what appears
+      to be vomit and diarrhea.
+    choices:
+    - sendID: 3
+      text: Next
+  - ID: 3
+    proposition: 'Bad case, but I think the diagnosis is:'
+    choices:
+    - sendID: 5
+      text: Smallpox
+    - sendID: 5
+      text: Ergotism
+    - sendID: 4
+      text: Cholera
+  - ID: 4
+    proposition: Impressive, very impressive. I really didn't think you would be
+      able to make a difference like those before you.
+    choices:
+    - sendID: 6
+      text: Met, what do you mean met? What is this supposed to mean?
+  - ID: 5
+    proposition: Ha! I knew you would confuse them. I suppose you are no better than
+      those I have met before.
+    choices:
+    - sendID: 6
+      text: Met, what do you mean met? What is this supposed to mean?
+  - ID: 6
+    proposition: This is not about you! I suggest you leave the questions and prepare
+      for your last day here.
     choices: []

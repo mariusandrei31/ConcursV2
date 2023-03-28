@@ -14,5 +14,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogStructure:
   - ID: 0
-    proposition: 3
+    proposition: A new day, a new corpse! I went through all the thickets to get
+      here. It had better be worth it.
+    choices:
+    - sendID: 1
+      text: Next
+  - ID: 1
+    proposition: nsurprisingly, this corpse also shows traces of rope. The face is
+      not disfigured, but it is clear that it was never beautiful.
+    choices:
+    - sendID: 2
+      text: Next
+  - ID: 2
+    proposition: From head to mouth, he has no teeth. He may have, someday. The skin
+      is not more beautiful either, it is full of bruises.
+    choices:
+    - sendID: 3
+      text: Next
+  - ID: 3
+    proposition: 'Diagnosis:'
+    choices:
+    - sendID: 5
+      text: Malaria
+    - sendID: 4
+      text: Scurvy
+    - sendID: 5
+      text: Leprosy
+  - ID: 4
+    proposition: Keep it up and you'll end up as good as me!
+    choices:
+    - sendID: 6
+      text: Seriously, you really don't want to tell me anything? Who are you?
+  - ID: 5
+    proposition: Wrong, just as I expected. Who knows, maybe you'll find a job at
+      the bakery one day.
+    choices:
+    - sendID: 6
+      text: Seriously, you really don't want to tell me anything? Who are you?
+  - ID: 6
+    proposition: Me, I'm just the narrator. What more do you want from me?
     choices: []

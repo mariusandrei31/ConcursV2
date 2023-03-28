@@ -287,7 +287,7 @@ public class InventoryController : MonoBehaviour
         SDPAnim.SetBool("OpenStuffDescriptionPage", false);
     }
 
-    void AddResource(string name, int quntity)
+    public void AddResource(string name, int quntity)
     {
         int itemID = getID[name];
         for (int i = 0; i < resources.Count; i++)
