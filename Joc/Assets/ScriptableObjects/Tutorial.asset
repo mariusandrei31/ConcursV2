@@ -33,6 +33,6 @@ MonoBehaviour:
     - sendID: 3
       text: Next
   - ID: 3
-    proposition: Press I to open your inventory and A to open the achievements page.
-      Now follow the marked arrows.
+    proposition: Press I to open your inventory, Q for the quests page and A to open
+      the achievements page. Now follow the marked arrows.
     choices: []
