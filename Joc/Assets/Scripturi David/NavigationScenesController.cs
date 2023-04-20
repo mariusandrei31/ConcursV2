@@ -45,8 +45,6 @@ public class NavigationScenesController : MonoBehaviour
                         currentScene.SetActive(false);
                         gameObjects[val].SetActive(true);
                         currentScene = gameObjects[val];
-
-                        Debug.Log(val);
                     }
 
                     if (val == -10)
